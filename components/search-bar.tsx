@@ -85,7 +85,7 @@ export function SearchBar({
         setActive(-1);
         setOpen(true);
       } catch {
-        /* aborted or failed — keep stale state */
+        /* aborted or failed - keep stale state */
       } finally {
         setLoading(false);
       }

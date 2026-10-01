@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "404 — Filmkig",
+  title: "404 - Filmkig",
   description: "Siden findes ikke.",
 };
 
@@ -37,7 +37,7 @@ export default function GlobalNotFound() {
             Siden findes ikke
           </h1>
           <p style={{ color: "#5f6c65", margin: 0 }}>
-            Det du leder efter, findes ikke — eller er flyttet.
+            Det du leder efter, findes ikke - eller er flyttet.
           </p>
           <a
             href="/da"

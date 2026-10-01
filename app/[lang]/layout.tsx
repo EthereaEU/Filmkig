@@ -32,7 +32,7 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(siteUrl()),
     title: {
-      default: `Filmkig — ${dict.hero.title}`,
+      default: `Filmkig - ${dict.hero.title}`,
       template: "%s | Filmkig",
     },
     description: dict.hero.subtitle,

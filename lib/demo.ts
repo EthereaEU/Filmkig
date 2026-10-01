@@ -10,7 +10,7 @@ import type {
 
 /**
  * Demo dataset used when no TMDB API key is configured.
- * Ids are fictional (1000+) and only used internally — the UI works fully
+ * Ids are fictional (1000+) and only used internally - the UI works fully
  * offline so the site can be evaluated without credentials.
  */
 
@@ -36,6 +36,7 @@ const providerById = new Map<number, Provider>(
 interface DemoTitle {
   id: number;
   type: "movie" | "tv";
+  danish: boolean;
   title: string;
   originalTitle: string;
   year: string;
@@ -55,6 +56,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1001,
     type: "movie",
+    danish: true,
     title: "Druk",
     originalTitle: "Druk",
     year: "2020",
@@ -78,6 +80,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1002,
     type: "tv",
+    danish: true,
     title: "Borgen",
     originalTitle: "Borgen",
     year: "2010",
@@ -96,6 +99,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1003,
     type: "tv",
+    danish: true,
     title: "Forbrydelsen",
     originalTitle: "Forbrydelsen",
     year: "2007",
@@ -105,9 +109,9 @@ export const demoTitles: DemoTitle[] = [
     seasons: 3,
     episodes: 40,
     overviewDa:
-      "Kriminalassistent Sarah Lund efterforsker drabet på en ung kvinde i København — en sag, der trækker tråde ind i politik og familieliv.",
+      "Kriminalassistent Sarah Lund efterforsker drabet på en ung kvinde i København - en sag, der trækker tråde ind i politik og familieliv.",
     overviewEn:
-      "Detective Sarah Lund investigates the murder of a young woman in Copenhagen — a case that reaches into politics and family life.",
+      "Detective Sarah Lund investigates the murder of a young woman in Copenhagen - a case that reaches into politics and family life.",
     cast: ["Sofie Gråbøl", "Søren Malling", "Lars Mikkelsen"],
     offers: [
       { kind: "flatrate", providerId: 76 },
@@ -117,6 +121,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1004,
     type: "movie",
+    danish: false,
     title: "Dune: Part Two",
     originalTitle: "Dune: Part Two",
     year: "2024",
@@ -139,6 +144,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1005,
     type: "movie",
+    danish: false,
     title: "Oppenheimer",
     originalTitle: "Oppenheimer",
     year: "2023",
@@ -160,6 +166,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1006,
     type: "tv",
+    danish: false,
     title: "The Bear",
     originalTitle: "The Bear",
     year: "2022",
@@ -178,6 +185,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1007,
     type: "tv",
+    danish: false,
     title: "Andor",
     originalTitle: "Andor",
     year: "2022",
@@ -196,6 +204,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1008,
     type: "tv",
+    danish: false,
     title: "Severance",
     originalTitle: "Severance",
     year: "2022",
@@ -214,6 +223,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1009,
     type: "movie",
+    danish: true,
     title: "Jagten",
     originalTitle: "Jagten",
     year: "2012",
@@ -236,6 +246,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1010,
     type: "tv",
+    danish: false,
     title: "The Last of Us",
     originalTitle: "The Last of Us",
     year: "2023",
@@ -257,6 +268,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1011,
     type: "movie",
+    danish: true,
     title: "Blinkende lygter",
     originalTitle: "Blinkende lygter",
     year: "2000",
@@ -278,6 +290,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1012,
     type: "tv",
+    danish: true,
     title: "Badehotellet",
     originalTitle: "Badehotellet",
     year: "2013",
@@ -299,6 +312,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1013,
     type: "tv",
+    danish: false,
     title: "Shōgun",
     originalTitle: "Shōgun",
     year: "2024",
@@ -317,6 +331,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1014,
     type: "tv",
+    danish: true,
     title: "Broen",
     originalTitle: "Bron/Broen",
     year: "2011",
@@ -339,6 +354,7 @@ export const demoTitles: DemoTitle[] = [
   {
     id: 1015,
     type: "movie",
+    danish: true,
     title: "Riget: Exodus",
     originalTitle: "Riget Exodus",
     year: "2022",
@@ -377,15 +393,16 @@ export function demoSearch(query: string): TitleCardData[] {
   return demoTitles
     .filter(
       (t) =>
-        t.title.toLowerCase().includes(q) ||
-        t.originalTitle.toLowerCase().includes(q)
+        t.danish &&
+        (t.title.toLowerCase().includes(q) ||
+          t.originalTitle.toLowerCase().includes(q))
     )
     .map(toCard);
 }
 
 export function demoTrending(type: "movie" | "tv", limit = 10): TitleCardData[] {
   return demoTitles
-    .filter((t) => t.type === type)
+    .filter((t) => t.danish && t.type === type)
     .sort((a, b) => b.rating - a.rating)
     .slice(0, limit)
     .map(toCard);
@@ -394,7 +411,10 @@ export function demoTrending(type: "movie" | "tv", limit = 10): TitleCardData[] 
 export function demoByProvider(providerId: number, type: "movie" | "tv") {
   return demoTitles
     .filter(
-      (t) => t.type === type && t.offers.some((o) => o.providerId === providerId)
+      (t) =>
+        t.danish &&
+        t.type === type &&
+        t.offers.some((o) => o.providerId === providerId)
     )
     .sort((a, b) => b.rating - a.rating)
     .map(toCard);
@@ -447,7 +467,7 @@ export function demoRecommendations(id: number): TitleCardData[] {
   const current = demoTitles.find((t) => t.id === id);
   if (!current) return [];
   return demoTitles
-    .filter((t) => t.id !== id && t.type === current.type)
+    .filter((t) => t.danish && t.id !== id && t.type === current.type)
     .slice(0, 6)
     .map(toCard);
 }

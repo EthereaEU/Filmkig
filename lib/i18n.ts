@@ -26,7 +26,7 @@ const da = {
   hero: {
     title: "Hvor kan jeg se det?",
     subtitle:
-      "Søg på enhver film eller serie og se, hvor den kan streames, lejes eller købes — kun tjenester der virker i Danmark.",
+      "Søg på enhver film eller serie og se, hvor den kan streames, lejes eller købes - kun tjenester der virker i Danmark.",
     placeholder: "Søg fx \u201cDruk\u201d, \u201cBorgen\u201d eller \u201cDune\u201d\u2026",
   },
   search: {
@@ -72,7 +72,7 @@ const da = {
     watchNow: "Se nu",
     unavailable: "Kan ikke ses lovligt i Danmark lige nu",
     unavailableHint:
-      "Titlen er ikke på nogen dansk streamingtjeneste i øjeblikket. Gem den på din liste, og tjek igen senere — udbuddet ændrer sig hele tiden.",
+      "Titlen er ikke på nogen dansk streamingtjeneste i øjeblikket. Gem den på din liste, og tjek igen senere - udbuddet ændrer sig hele tiden.",
     allOptions: "Alle muligheder på JustWatch",
     updatedDaily: "Tilgængelighed opdateres løbende",
     providerCount: "{n} tjenester",
@@ -97,7 +97,7 @@ const da = {
   },
   watchlist: {
     title: "Min liste",
-    subtitle: "Film og serier du har gemt — gemmes kun i din browser",
+    subtitle: "Film og serier du har gemt - gemmes kun i din browser",
     empty: "Din liste er tom",
     emptyHint: "Gem film og serier du vil se senere, så samler vi dem her.",
     browse: "Find noget at se",
@@ -105,13 +105,13 @@ const da = {
   },
   about: {
     title: "Om Filmkig",
-    p1: "Filmkig er en gratis tjeneste, der viser hvor film og tv-serier lovligt kan ses i Danmark — stream, leje eller køb.",
+    p1: "Filmkig er en gratis tjeneste, der viser hvor film og tv-serier lovligt kan ses i Danmark - stream, leje eller køb.",
     p2: "Filminformation og plakater kommer fra The Movie Database (TMDB). Streamingtilgængelighed leveres af JustWatch-data via TMDB og dækker udelukkende Danmark.",
-    p3: "Filmkig hoster ikke selv indhold — vi linker til de officielle tjenester.",
+    p3: "Filmkig hoster ikke selv indhold - vi linker til de officielle tjenester.",
   },
   errors: {
     notFoundTitle: "Siden findes ikke",
-    notFoundHint: "Det du leder efter, findes ikke — eller er flyttet.",
+    notFoundHint: "Det du leder efter, findes ikke - eller er flyttet.",
     errorTitle: "Noget gik galt",
     errorHint: "Der opstod en fejl under indlæsningen. Prøv igen om et øjeblik.",
     tryAgain: "Prøv igen",
@@ -139,7 +139,7 @@ const en: Dict = {
   hero: {
     title: "Where can I watch it?",
     subtitle:
-      "Search for any movie or series and see where it can be streamed, rented or bought — only services that work in Denmark.",
+      "Search for any movie or series and see where it can be streamed, rented or bought - only services that work in Denmark.",
     placeholder: "Try \u201cDune\u201d, \u201cBorgen\u201d or \u201cThe Bear\u201d\u2026",
   },
   search: {
@@ -185,7 +185,7 @@ const en: Dict = {
     watchNow: "Watch now",
     unavailable: "Not available legally in Denmark right now",
     unavailableHint:
-      "This title isn\u2019t on any Danish streaming service at the moment. Save it to your list and check back later — availability changes all the time.",
+      "This title isn\u2019t on any Danish streaming service at the moment. Save it to your list and check back later - availability changes all the time.",
     allOptions: "All options on JustWatch",
     updatedDaily: "Availability is updated regularly",
     providerCount: "{n} services",
@@ -210,7 +210,7 @@ const en: Dict = {
   },
   watchlist: {
     title: "My list",
-    subtitle: "Movies and series you have saved — stored in your browser only",
+    subtitle: "Movies and series you have saved - stored in your browser only",
     empty: "Your list is empty",
     emptyHint: "Save movies and series you want to watch later, and we\u2019ll keep them here.",
     browse: "Find something to watch",
@@ -218,13 +218,13 @@ const en: Dict = {
   },
   about: {
     title: "About Filmkig",
-    p1: "Filmkig is a free service that shows where movies and TV series can be watched legally in Denmark — streaming, rental or purchase.",
+    p1: "Filmkig is a free service that shows where movies and TV series can be watched legally in Denmark - streaming, rental or purchase.",
     p2: "Movie information and posters come from The Movie Database (TMDB). Streaming availability is powered by JustWatch data via TMDB and covers Denmark only.",
-    p3: "Filmkig does not host any content — we link to the official services.",
+    p3: "Filmkig does not host any content - we link to the official services.",
   },
   errors: {
     notFoundTitle: "Page not found",
-    notFoundHint: "What you are looking for doesn\u2019t exist — or has moved.",
+    notFoundHint: "What you are looking for doesn\u2019t exist - or has moved.",
     errorTitle: "Something went wrong",
     errorHint: "An error occurred while loading. Please try again shortly.",
     tryAgain: "Try again",

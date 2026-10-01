@@ -74,6 +74,8 @@ interface TmdbResult {
   first_air_date?: string;
   vote_average?: number;
   vote_count?: number;
+  origin_country?: string[];
+  original_language?: string;
 }
 
 interface TmdbProvider {
@@ -103,6 +105,11 @@ interface TmdbDetails extends TmdbResult {
 }
 
 // ---------- normalizers ----------
+
+/** True when a title originates from Denmark (TMDB origin_country = DK). */
+function isDanish(raw: TmdbResult): boolean {
+  return raw.origin_country?.includes("DK") ?? raw.original_language === "da";
+}
 
 function toCard(raw: TmdbResult, type: MediaType): TitleCardData | null {
   const title = type === "movie" ? raw.title : raw.name;
@@ -177,6 +184,7 @@ export async function searchTitles(
     .filter((r): r is TmdbResult & { media_type: MediaType } =>
       ["movie", "tv"].includes(r.media_type ?? "")
     )
+    .filter(isDanish)
     .map((r) => toCard(r, r.media_type))
     .filter((r): r is TitleCardData => r !== null)
     .slice(0, limit);
@@ -190,8 +198,12 @@ export async function getTrending(
   if (!hasTmdb) return demoTrending(type, limit);
 
   const data = await tmdbFetch<{ results?: TmdbResult[] }>(
-    `/trending/${type}/week`,
-    { language: tmdbLanguage[locale] },
+    `/discover/${type}`,
+    {
+      language: tmdbLanguage[locale],
+      with_origin_country: "DK",
+      sort_by: "popularity.desc",
+    },
     3600
   );
 
@@ -313,6 +325,7 @@ export async function discoverByProvider(
       language: tmdbLanguage[locale],
       watch_region: "DK",
       with_watch_providers: String(providerId),
+      with_origin_country: "DK",
       sort_by: "popularity.desc",
       "vote_count.gte": "20",
     },
@@ -340,6 +353,7 @@ export async function getRecommendations(
   );
 
   return (data?.results ?? [])
+    .filter(isDanish)
     .map((r) => toCard(r, type))
     .filter((r): r is TitleCardData => r !== null)
     .slice(0, limit);

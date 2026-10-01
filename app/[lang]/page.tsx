@@ -46,7 +46,7 @@ export default async function HomePage({
       <div className="mx-auto max-w-6xl space-y-12 px-4 pb-4 sm:px-6">
         <section>
           <SectionHeader
-            title={`${dict.trending.title} — ${dict.trending.movies}`}
+            title={`${dict.trending.title} - ${dict.trending.movies}`}
             subtitle={dict.trending.subtitle}
           />
           <TitleGrid items={movies} />
@@ -54,7 +54,7 @@ export default async function HomePage({
 
         <section>
           <SectionHeader
-            title={`${dict.trending.title} — ${dict.trending.series}`}
+            title={`${dict.trending.title} - ${dict.trending.series}`}
           />
           <TitleGrid items={series} />
         </section>

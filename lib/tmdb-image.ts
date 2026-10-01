@@ -10,7 +10,7 @@ export type TmdbImageSize =
   | "w1280"
   | "original";
 
-/** Build a TMDB image URL. Client-safe — no secrets involved. */
+/** Build a TMDB image URL. Client-safe - no secrets involved. */
 export function tmdbImage(
   path: string | null,
   size: TmdbImageSize = "w342"

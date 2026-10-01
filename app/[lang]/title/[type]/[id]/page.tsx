@@ -38,7 +38,7 @@ export async function generateMetadata({
   const ogImage = tmdbImage(title.backdropPath ?? title.posterPath, "w1280");
 
   return {
-    title: `${title.title}${title.year ? ` (${title.year})` : ""} — ${typeLabel}`,
+    title: `${title.title}${title.year ? ` (${title.year})` : ""} - ${typeLabel}`,
     description: title.overview ?? dict.hero.subtitle,
     alternates: {
       canonical,

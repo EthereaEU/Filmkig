@@ -2,7 +2,7 @@ export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-/** "Fight Club" -> "fight-club" — readable, ASCII-safe slugs for title URLs. */
+/** "Fight Club" -> "fight-club" - readable, ASCII-safe slugs for title URLs. */
 export function slugify(input: string): string {
   return input
     .toLowerCase()
