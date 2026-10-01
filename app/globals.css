@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f6f5f0;
+  --surface: #ffffff;
+  --surface-2: #efede6;
+  --foreground: #18211d;
+  --muted: #5f6c65;
+  --line: #e3e1d7;
+  --accent: #0b6b57;
+  --accent-strong: #085341;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcebe4;
+  --star: #d97706;
+  --ring: rgba(11, 107, 87, 0.4);
+}
+
+.dark {
+  --background: #0e1310;
+  --surface: #161c18;
+  --surface-2: #1e2621;
+  --foreground: #e8ede8;
+  --muted: #98a79e;
+  --line: #283129;
+  --accent: #4fc9a4;
+  --accent-strong: #6fd8ba;
+  --accent-ink: #06231b;
+  --accent-soft: #1b3229;
+  --star: #fbbf24;
+  --ring: rgba(79, 201, 164, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-star: var(--star);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--foreground) 8%, transparent),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
