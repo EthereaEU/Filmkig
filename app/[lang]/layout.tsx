@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import { getDictionary, hasLocale, locales, type Locale } from "@/lib/i18n";
 import { I18nProvider } from "@/components/i18n-provider";
+import { ThemeSync } from "@/components/theme-sync";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { siteUrl } from "@/lib/utils";
@@ -65,6 +66,7 @@ export default async function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeSync />
         <I18nProvider lang={lang} dict={dict}>
           <Header />
           <main className="flex-1">{children}</main>

@@ -3,33 +3,33 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f6f5f0;
+  --background: #fafafa;
   --surface: #ffffff;
-  --surface-2: #efede6;
-  --foreground: #18211d;
-  --muted: #5f6c65;
-  --line: #e3e1d7;
-  --accent: #0b6b57;
-  --accent-strong: #085341;
+  --surface-2: #f4f4f5;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --line: #e4e4e7;
+  --accent: #18181b;
+  --accent-strong: #000000;
   --accent-ink: #ffffff;
-  --accent-soft: #dcebe4;
+  --accent-soft: #ececee;
   --star: #d97706;
-  --ring: rgba(11, 107, 87, 0.4);
+  --ring: rgba(24, 24, 27, 0.3);
 }
 
 .dark {
-  --background: #0e1310;
-  --surface: #161c18;
-  --surface-2: #1e2621;
-  --foreground: #e8ede8;
-  --muted: #98a79e;
-  --line: #283129;
-  --accent: #4fc9a4;
-  --accent-strong: #6fd8ba;
-  --accent-ink: #06231b;
-  --accent-soft: #1b3229;
+  --background: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1f1f21;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --accent: #fafafa;
+  --accent-strong: #ffffff;
+  --accent-ink: #0a0a0a;
+  --accent-soft: #232326;
   --star: #fbbf24;
-  --ring: rgba(79, 201, 164, 0.45);
+  --ring: rgba(250, 250, 250, 0.3);
 }
 
 @theme inline {

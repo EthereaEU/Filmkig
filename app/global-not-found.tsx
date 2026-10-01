@@ -18,8 +18,8 @@ export default function GlobalNotFound() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#f6f5f0",
-          color: "#18211d",
+          background: "#fafafa",
+          color: "#18181b",
         }}
       >
         <div style={{ textAlign: "center", padding: "0 1rem" }}>
@@ -27,7 +27,7 @@ export default function GlobalNotFound() {
             style={{
               fontSize: "3.5rem",
               fontWeight: 700,
-              color: "#0b6b57",
+              color: "#18181b",
               margin: 0,
             }}
           >
@@ -36,7 +36,7 @@ export default function GlobalNotFound() {
           <h1 style={{ fontSize: "1.4rem", fontWeight: 600, margin: "1rem 0 0.5rem" }}>
             Siden findes ikke
           </h1>
-          <p style={{ color: "#5f6c65", margin: 0 }}>
+          <p style={{ color: "#71717a", margin: 0 }}>
             Det du leder efter, findes ikke - eller er flyttet.
           </p>
           <a
@@ -44,7 +44,7 @@ export default function GlobalNotFound() {
             style={{
               display: "inline-block",
               marginTop: "1.75rem",
-              background: "#0b6b57",
+              background: "#18181b",
               color: "#fff",
               padding: "0.65rem 1.5rem",
               borderRadius: "999px",

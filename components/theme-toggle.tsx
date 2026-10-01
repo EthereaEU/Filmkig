@@ -13,10 +13,10 @@ export function ThemeToggle() {
 
   function toggle() {
     const next = !document.documentElement.classList.contains("dark");
-    document.documentElement.classList.toggle("dark", next);
     try {
       localStorage.setItem("filmkig-theme", next ? "dark" : "light");
     } catch {}
+    document.documentElement.classList.toggle("dark", next);
     setDark(next);
   }
 

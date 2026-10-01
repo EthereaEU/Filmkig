@@ -131,7 +131,7 @@ export function SearchBar({
     <div ref={rootRef} className="relative w-full">
       <div
         className={cn(
-          "flex items-center gap-2 rounded-full border border-line bg-surface shadow-sm transition-shadow focus-within:shadow-md focus-within:border-accent",
+          "flex items-center gap-2 rounded-full border border-line bg-surface shadow-sm transition-shadow focus-within:shadow-md focus-within:border-muted",
           size === "lg" ? "px-5 py-3.5 text-base" : "px-3.5 py-2 text-sm"
         )}
       >
@@ -169,7 +169,7 @@ export function SearchBar({
           }}
           onKeyDown={onKeyDown}
           placeholder={t("search.placeholder")}
-          className="w-full bg-transparent text-foreground placeholder:text-muted focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+          className="w-full bg-transparent text-foreground placeholder:text-muted focus:outline-none focus-visible:outline-none [&::-webkit-search-cancel-button]:hidden"
         />
         {loading && (
           <span
@@ -180,7 +180,7 @@ export function SearchBar({
       </div>
 
       {showDropdown && (
-        <div className="absolute inset-x-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-line bg-surface shadow-xl">
+        <div className="absolute inset-x-0 top-full z-50 mt-2 overflow-hidden rounded-3xl border border-line bg-surface shadow-xl">
           {results.length > 0 ? (
             <ul id={listId} role="listbox" className="max-h-[70vh] overflow-y-auto scrollbar-thin py-1.5">
               {results.map((s, i) => (
